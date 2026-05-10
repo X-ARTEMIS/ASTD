@@ -1,6 +1,6 @@
 #pragma once
 
-#include "math.hpp"
-#include "time.hpp"
+#include "math/math.hpp"
+#include "time/time.hpp"
 
 // convenience header to include all astd headers
