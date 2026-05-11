@@ -29,4 +29,28 @@ namespace astd {
 	double square(double num) {
 		return num * num;
 	}
+
+	bool getNumType(int num) {
+    // Returns true if even, false is odd
+
+    if (num % 2 == 0) {
+        return true;
+    }
+
+    else {
+        return false;
+    }
+}
+
+	bool getNumType(double num) {
+    // Returns true if even, false is odd
+
+    	if (num % 2 == 0) {
+        	return true;
+    	}
+
+    	else {
+        	return false;
+    	}
+	}
 }
