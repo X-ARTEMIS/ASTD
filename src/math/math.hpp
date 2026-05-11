@@ -5,4 +5,6 @@ namespace astd {
 	int power(int num1, int num2);
 	double square(double num);
 	int square(int num);
+	bool getNumType(int num);
+	bool getNumType(double num);
 }
