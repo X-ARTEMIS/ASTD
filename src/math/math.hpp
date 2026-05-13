@@ -1,5 +1,5 @@
 auto power(auto base, auto exponent) {
-	auto powerResult{ base };
+	auto powerResult{ 1 };
 
 	if (exponent <= 0) {
 		return 1;
