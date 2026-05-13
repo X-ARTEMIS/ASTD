@@ -1,10 +1,21 @@
-#pragma once
+#include <iostream>
+#include <cassert>
 
-namespace astd {
-	double power(double num1, double num2);
-	int power(int num1, int num2);
-	double square(double num);
-	int square(int num);
-	bool getNumType(int num);
-	bool getNumType(double num);
+template<typename T, typename U>
+	auto power(T base, U exponent) {
+		auto powerResult{ base };
+		if (exponent <= 0) {
+			return 1;
+		}
+
+		for (int i{ 0 }; i < exponent; ++i) {
+			powerResult *= base;
+		}
+
+		return powerResult;
+	}
+
+template<typename W>
+auto square(W base) {
+	return base * base;
 }
