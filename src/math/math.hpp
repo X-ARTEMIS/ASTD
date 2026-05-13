@@ -1,6 +1,3 @@
-#include <iostream>
-#include <cassert>
-
 template<typename T, typename U>
 	auto power(T base, U exponent) {
 		auto powerResult{ base };
