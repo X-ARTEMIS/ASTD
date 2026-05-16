@@ -1,4 +1,4 @@
-auto power(auto base, auto exponent) {
+auto power(const auto base, const auto exponent) {
 	auto powerResult{ 1 };
 
 	if (exponent <= 0) {
@@ -12,11 +12,11 @@ auto power(auto base, auto exponent) {
 	return powerResult;
 }
 
-auto square(auto base) {
+auto square(const auto base) {
 	return base * base;
 }
 
-bool getNumType(auto num) {
+bool getNumType(const auto num) {
 	// True for even, false for odd
 
 	if (num % 2 == 0) {
