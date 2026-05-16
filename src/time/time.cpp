@@ -1,7 +1,7 @@
 #include <chrono>
 
 namespace astd {
-	auto getSystemTime(bool local) {
+	auto getSystemTime(const bool local) {
 		if (local) {
 			return std::chrono::current_zone()->to_local(std::chrono::system_clock::now());
 		}
@@ -11,7 +11,7 @@ namespace astd {
 		}
 	}
 
-	auto getSystemTrimmedTime(bool local) {
+	auto getSystemTrimmedTime(const bool local) {
 		if (local) {
 			return std::chrono::current_zone()->to_local(std::chrono::time_point_cast<std::chrono::seconds>(std::chrono::system_clock::now()));
 		}
