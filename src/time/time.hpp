@@ -1,9 +1,23 @@
-#pragma once
-
 #include <chrono>
-namespace astd {
-  auto getSystemTime(const bool local = false);
-  auto getSystemTrimmedTime(const bool local = false);
-}
 
-// there is a special one for trimmed and non trimmed as trimming changes return types (probably a better way to do it like making it a string but I want it to retain usefulness as the time point datatype.)
+namespace astd {
+	auto getSystemTime(const bool local) {
+		if (local) {
+			return std::chrono::current_zone()->to_local(std::chrono::system_clock::now());
+		}
+
+		else {
+			return std::chrono::system_clock::now();
+		}
+	}
+
+	auto getSystemTrimmedTime(const bool local) {
+		if (local) {
+			return std::chrono::current_zone()->to_local(std::chrono::time_point_cast<std::chrono::seconds>(std::chrono::system_clock::now()));
+		}
+
+		else {
+			return std::chrono::time_point_cast<std::chrono::seconds>(std::chrono::system_clock::now());
+		}
+	}
+}
