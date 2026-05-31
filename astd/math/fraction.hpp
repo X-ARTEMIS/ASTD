@@ -9,7 +9,7 @@ public:
 	fraction(T numerator, U denominator) : numerator{ numerator }, denominator{ denominator } {}
 
 	double fractionToDecimal() {
-		return static_cast<double>(this.numerator) / static_cast<double>(this.denominator);
+		return static_cast<double>(this->numerator) / static_cast<double>(this->denominator);
 	}
 };
 
