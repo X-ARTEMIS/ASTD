@@ -8,7 +8,7 @@ Next unzip the contents (if necessary) and copy the astd directory into your wor
 
 Now you can include files with ```#include "astd/astd.hpp"```
 
-# Non important stuff from here on out (optional reading)
+# Non-important stuff from here on out (optional reading)
 
 ### Versioning System
 
