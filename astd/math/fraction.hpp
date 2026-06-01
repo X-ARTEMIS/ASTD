@@ -6,7 +6,7 @@ public:
 	T numerator{};
 	U denominator{};
 
-	fraction(T numerator, U denominator) : numerator{ numerator }, denominator{ denominator } {}
+	fraction(T numerator, U denominator) : numerator{ numerator }, denominator{ denominator } { if (denominator == 0) { throw "Undefined fraction"; } }
 
 	double fractionToDecimal() {
 		return static_cast<double>(this->numerator) / static_cast<double>(this->denominator);
