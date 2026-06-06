@@ -5,7 +5,7 @@ template<typename T, typename U>
 class fraction {
 public:
 	T numerator{};
-	U denominator{};
+	U denominator{ 1 };
 
 	fraction(T numerator, U denominator) : numerator{ numerator }, denominator{ denominator } { if (denominator == 0) { throw std::exception("Undefined fraction"); } }
 
