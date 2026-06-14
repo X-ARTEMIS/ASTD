@@ -4,27 +4,27 @@
 template<typename T, typename U>
 class fraction {
 private:
-	T numerator{};
-	U denominator{ 1 };
+	T m_numerator{};
+	U m_denominator{ 1 };
 
 public:
-	fraction(T numerator, U denominator) : numerator{ numerator }, denominator{ denominator } { if (denominator == 0) { throw std::exception("Undefined fraction"); } }
+	fraction(T numerator, U denominator) : m_numerator{ numerator }, m_denominator{ denominator } { if (denominator == 0) { throw std::exception("Undefined fraction"); } }
 
 	double fractionToDecimal() {
-		return static_cast<double>(this->numerator) / static_cast<double>(this->denominator);
+		return static_cast<double>(this->m_numerator) / static_cast<double>(this->m_denominator);
 	}
 
-	T getNumerator() {
-		return numerator;
+	T getNumerator() const {
+		return m_numerator;
 	}
 
-	U getDenominator() {
-		return denominator;
+	U getDenominator() const {
+		return m_denominator;
 	}
 
 	T setNumerator(auto value) {
-		numerator = value;
-		return numerator;
+		m_numerator = value;
+		return m_numerator;
 	}
 
 	U setDenominator(auto value) {
@@ -33,70 +33,70 @@ public:
 		}
 
 		else {
-			denominator = value;
+			m_denominator = value;
 		}
-		return denominator;
+		return m_denominator;
 	}
 
 	fraction& operator+=(fraction& fraction2) {
-		if (!(this->denominator == fraction2.denominator)) { 
-			double lcm = std::lcm(this->denominator, fraction2.denominator);
+		if (!(this->m_denominator == fraction2.m_denominator)) {
+			double lcm = std::lcm(this->m_denominator, fraction2.m_denominator);
 
-			this->numerator = (lcm / this->denominator) * this->numerator +
-				(lcm / fraction2.denominator) * fraction2.numerator;
-			this->denominator = lcm;
+			this->m_numerator = (lcm / this->m_denominator) * this->m_numerator +
+				(lcm / fraction2.m_denominator) * fraction2.m_numerator;
+			this->m_denominator = lcm;
 		}
 
 		else {
-			this->numerator += fraction2.numerator;
+			this->m_numerator += fraction2.m_numerator;
 		}
 
 		return *this;
 	}
 
 	fraction& operator-=(fraction& fraction2) {
-		if (!(this->denominator == fraction2.denominator)) {
-			double lcm = std::lcm(this->denominator, fraction2.denominator);
+		if (!(this->m_denominator == fraction2.m_denominator)) {
+			double lcm = std::lcm(this->m_denominator, fraction2.m_denominator);
 
-			this->numerator = (lcm / this->denominator) * this->numerator -
-				(lcm / fraction2.denominator) * fraction2.numerator;
+			this->m_numerator = (lcm / this->m_denominator) * this->m_numerator -
+				(lcm / fraction2.m_denominator) * fraction2.m_numerator;
 			this->denominator = lcm;
 		}
 
 		else {
-			this->numerator -= fraction2.numerator;
+			this->m_numerator -= fraction2.m_numerator;
 		}
 
 		return *this;
 	}
 
 	fraction& operator*=(fraction& fraction2) {
-		if (!(this->denominator == fraction2.denominator)) {
+		if (!(this->m_denominator == fraction2.m_denominator)) {
 			double lcm = std::lcm(this->denominator, fraction2.denominator);
 
-			this->numerator = (lcm / this->denominator) * this->numerator *
-				(lcm / fraction2.denominator) * fraction2.numerator;
-			this->denominator = lcm;
+			this->m_numerator = (lcm / this->m_denominator) * this->m_numerator *
+				(lcm / fraction2.denominator) * fraction2.m_numerator;
+			this->m_denominator = lcm;
 		}
 
 		else {
-			this->numerator *= fraction2.numerator;
+			this->m_numerator *= fraction2.m_numerator;
 		}
 
 		return *this;
 	}
 
 	fraction& operator/=(fraction& fraction2) {
-		if (!(this->denominator == fraction2.denominator)) {
-			double lcm = std::lcm(this->denominator, fraction2.denominator);
+		if (!(this->m_denominator == fraction2.m_denominator)) {
+			double lcm = std::lcm(this->m_denominator, fraction2.m_denominator);
 
-			this->numerator = (lcm / this->denominator) * this->numerator /
-				(lcm / fraction2.denominator) * fraction2.numerator;
-			this->denominator = lcm;
+			this->m_numerator = (lcm / this->m_denominator) * this->m_numerator /
+				(lcm / fraction2.m_denominator) * fraction2.m_numerator;
+			this->m_denominator = lcm;
 		}
 
 		else {
-			this->numerator /= fraction2.numerator;
+			this->m_numerator /= fraction2.m_numerator;
 		}
 
 		return *this;
@@ -120,6 +120,6 @@ fraction<M, N>& operator*(fraction<O, P> frac, fraction<Q, R> frac2) {
 
 template<typename S, typename V>
 std::ostream& operator<<(std::ostream& out, fraction<S, V> frac) {
-	out << frac.numerator << '/' << frac.denominator;
+	out << frac.m_numerator << '/' << frac.m_denominator;
 	return out;
 }
