@@ -3,14 +3,33 @@
 
 template<typename T, typename U>
 class fraction {
-public:
+private:
 	T numerator{};
 	U denominator{ 1 };
 
+public:
 	fraction(T numerator, U denominator) : numerator{ numerator }, denominator{ denominator } { if (denominator == 0) { throw std::exception("Undefined fraction"); } }
 
 	double fractionToDecimal() {
 		return static_cast<double>(this->numerator) / static_cast<double>(this->denominator);
+	}
+
+	T getNumerator() {
+		return numerator;
+	}
+
+	U getDenominator() {
+		return denominator;
+	}
+
+	T setNumerator(auto value) {
+		numerator = value;
+		return numerator;
+	}
+
+	U setDenominator(auto value) {
+		denominator = value;
+		return denominator;
 	}
 
 	fraction& operator+=(fraction& fraction2) {
