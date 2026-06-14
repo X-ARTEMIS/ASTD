@@ -28,7 +28,13 @@ public:
 	}
 
 	U setDenominator(auto value) {
-		denominator = value;
+		if (value == 0) {
+			throw std::exception("Undefined fraction");
+		}
+
+		else {
+			denominator = value;
+		}
 		return denominator;
 	}
 
