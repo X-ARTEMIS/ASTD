@@ -1,4 +1,4 @@
-#include <iostream>
+#include <ostream> 
 #include <numeric>
 
 template<typename T, typename U>
