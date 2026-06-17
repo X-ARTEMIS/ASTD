@@ -8,6 +8,7 @@ private:
 	U m_denominator{ 1 };
 
 public:
+	fraction() = default;
 	fraction(T numerator, U denominator) : m_numerator{ numerator }, m_denominator{ denominator } { if (denominator == 0) { throw std::exception("Undefined fraction"); } }
 
 	double fractionToDecimal() {
