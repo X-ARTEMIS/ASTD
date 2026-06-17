@@ -1,3 +1,3 @@
 int main() {
-  assert(power(2, 3) == 8);
+  static_assert(power(2, 3) == 8);
 }
